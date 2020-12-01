@@ -20,7 +20,7 @@ public class InsertRecords {
     }
 
     public void insert(String name) {
-        String sql = "INSERT INTO doors(name) VALUES(?)";
+        String sql = "INSERT INTO questions(name) VALUES(?)";
 
         try {
             Connection conn = this.connect();

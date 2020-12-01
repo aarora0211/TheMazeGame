@@ -21,7 +21,7 @@ public class SelectRecords {
     }
 
     public void selectAll() {
-        String sql = "SELECT * FROM doors";
+        String sql = "SELECT * FROM questions";
 
         try {
             Connection conn = this.connect();
@@ -30,7 +30,7 @@ public class SelectRecords {
 
             // loop through the result set
             while (rs.next()) {
-                System.out.println(rs.getInt("id") + "\t" + rs.getString("name");
+                System.out.println(rs.getInt("id") + "\t" + rs.getString("name"));
             }
         } catch (SQLException e) {
             System.out.println(e.getMessage());

@@ -8,7 +8,8 @@ import java.sql.SQLException;
 public class CreateDB {
     public static void createNewDatabase(String fileName) {
 
-        String url = "jdbc:sqlite:" + fileName;
+    	
+        String url = "jdbc:sqlite:./java-sqlite.db";
 
         try {
             Connection conn = DriverManager.getConnection(url);
