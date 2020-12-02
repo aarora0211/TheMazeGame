@@ -1,9 +1,16 @@
 package Core;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.List;
 import java.util.Map;
+import java.util.Random;
+import java.util.Set;
 
 public class QuestionAnswer {
+	
 	/**
 	 * 
 	 */
@@ -17,40 +24,105 @@ public class QuestionAnswer {
 	/**
 	 * 
 	 */
-	private String[][] questionGrid;
+	private String[] questionGrid;
 	
-	public QuestionAnswer(final int rows, final int numberDoors) {
-		questionGrid = new String[rows][numberDoors];
+	/**
+	 * 
+	 * @param rows
+	 */
+	public QuestionAnswer(final int rows) {
+		questionGrid = new String[rows];
 		setQuestionMap(new HashMap<>());
 		setHintsMap(new HashMap<>());
 	}
    
+	/**
+	 * 
+	 * @return
+	 */
 	public String getDimensions() {
-		return "" + questionGrid.length + ", " + questionGrid[0].length; 
+		return "Number of doors in the room: " + questionGrid.length;
 	}
    
+	public String[] getQuestionGrid() {
+		return this.questionGrid;
+	}
 
+	/**
+	 * 
+	 * @return
+	 */
 	public Map<String, String> getQuestionMap() {
 		return questionMap;
 	}
 
+	/**
+	 * 
+	 * @param questionMap
+	 */
 	public void setQuestionMap(Map<String, String> questionMap) {
 		this.questionMap = questionMap;
 	}
 	
+	/**
+	 * 
+	 * @return
+	 */
 	public Map<String, String> getHintsMap() {
 		return hintsMap;
 	}
 
+	/**
+	 * 
+	 * @param hintsMap
+	 */
 	public void setHintsMap(Map<String, String> hintsMap) {
 		this.hintsMap = hintsMap;
 	}
 
-   
-	public static void main(final String[][] theArgs) {
-		QuestionAnswer qa = new QuestionAnswer(3, 5);
-	    System.out.println(qa.getDimensions());
+	/**
+	 * 
+	 * @param theQuestion
+	 * @param theAnswer
+	 * @return
+	 */
+	public boolean checkAnswer(String theQuestion, String theAnswer) {
+		if (questionMap.containsKey(theQuestion)) {
+			if (questionMap.get(theQuestion).compareTo(theAnswer) == 0) {
+				return true;
+			}
+		}
+		return false;
 	}
-
+	
+	/**
+	 * 
+	 */
+	public void generateRandomQuestions() {
+		Map<String, String> tempQuestionMap = getQuestionMap();
+		final Set<String> keys = tempQuestionMap.keySet();
+        final Iterator<String> itr = keys.iterator();
+        Set<Integer> randomQuestionsSet = new HashSet<>();
+    	Random rand = new Random();
+    	int randomQuestion = rand.nextInt(tempQuestionMap.size());
+    	//System.out.println("Random Question Number " + randomQuestion);
+        while (itr.hasNext()) {
+        	while (randomQuestionsSet.contains(randomQuestion)) {
+        		randomQuestion = rand.nextInt(tempQuestionMap.size());
+        	}
+        	//System.out.println("Random Question Number " + randomQuestion);
+        	randomQuestionsSet.add(randomQuestion);
+        	if (randomQuestionsSet.size() == questionGrid.length) {
+        		break;
+        	}
+        }
+        final Iterator<Integer> randQuestionIterator = randomQuestionsSet.iterator();
+        int i = 0;
+    	List<String> randomQuestionList = new ArrayList<>(keys);
+        while(randQuestionIterator.hasNext()) {
+        	int questionNumber = randQuestionIterator.next();
+        	questionGrid[i] = randomQuestionList.get(questionNumber);
+        	i += 1;
+        }
+	}
 }
-
