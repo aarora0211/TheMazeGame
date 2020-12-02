@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<data>
+	<qestions>
+		<question>111111</question>
+		<answer>1</answer>
+		<answer>2</answer>
+		<answer>3</answer>
+		<answer>4</answer>
+		<right_answer>1</right_answer>
+	</qestions>
+	<qestions>
+		<question>222222</question>
+		<answer>1</answer>
+		<answer>2</answer>
+		<answer>3</answer>
+		<answer>4</answer>
+		<right_answer>1</right_answer>
+	</qestions>
+	<qestions>
+		<question>333333</question>
+		<answer>1</answer>
+		<answer>2</answer>
+		<answer>3</answer>
+		<answer>4</answer>
+		<right_answer>1</right_answer>
+	</qestions>
+	<qestions>
+		<question>444444</question>
+		<answer>1</answer>
+		<answer>2</answer>
+		<answer>3</answer>
+		<answer>4</answer>
+		<right_answer>1</right_answer>
+	</qestions>
+</data>
