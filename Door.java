@@ -1,5 +1,3 @@
-import java.util.HashMap;
-
 /*This class will describe the functionality of a door object in the Maze
  * game.  */
 public class Door {
@@ -20,11 +18,12 @@ public class Door {
 	//The lock flag, true = locked, false = not locked.
 	private boolean myLock;
 	
-	//Map containing the question and the answers
-	private HashMap<String, String[]> myQandA;
-	public Door(){
-		setMyLock(false);
-		myQandA = new HashMap<String, String[]>();
+	//The question to be asked upon "knocking" on this door.
+	private String myQ;
+	
+	public Door(String theQ){
+		setMyLock(true);
+		myQ = theQ;
 	}
 	
 	//Will return whether the door is locked
@@ -37,21 +36,11 @@ public class Door {
 		this.myLock = theLock;
 	}
 	
-	//Will set the question and the accepted answers 
-	public void setQandA(String theQ, String[] theA) {
-		myQandA.put(theQ, theA);
-	}
 	
 	//Will return the Question as a String.
 	public String getQ() {
-		return (String) myQandA.keySet().toArray()[0];
+		return myQ;
 	}
 	
-	//Will retrieve the array of answers.
-	public String[] getA() {
-		return myQandA.get(myQandA.keySet().toArray()[0]);
-	}
-
 	
 }
-
