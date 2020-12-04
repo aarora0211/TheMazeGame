@@ -30,8 +30,8 @@ public class QuestionAnswer {
 	 * 
 	 * @param rows
 	 */
-	public QuestionAnswer(final int rows) {
-		questionGrid = new String[rows];
+	public QuestionAnswer(final int numDoors) {
+		questionGrid = new String[numDoors];
 		setQuestionMap(new HashMap<>());
 		setHintsMap(new HashMap<>());
 	}
@@ -45,6 +45,7 @@ public class QuestionAnswer {
 	}
    
 	public String[] getQuestionGrid() {
+		generateRandomQuestions();
 		return this.questionGrid;
 	}
 
@@ -93,6 +94,18 @@ public class QuestionAnswer {
 			}
 		}
 		return false;
+	}
+	
+	/**
+	 * 
+	 * @param question
+	 * @return
+	 */
+	public String getHint(final String question) {
+		if(hintsMap.containsKey(question)) {
+			return hintsMap.get(question);
+		}
+		return "";
 	}
 	
 	/**
