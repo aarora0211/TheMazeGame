@@ -117,7 +117,7 @@ public class DBGenerator {
 
 			// generate rooms and assign doors to room, in a 5*6 room placement we need 30
 			// rooms
-			int[][] roomIndex = new int[5][6];
+			int[][] roomIndex = new int[6][5];
 			int room_id_increased = 1;
 			int offset = 0;
 
@@ -135,13 +135,13 @@ public class DBGenerator {
 					if (i == 0) {
 						room.put("top", "none");
 					}
-					if (i == 4) {
+					if (i == 5) {
 						room.put("bottom", "none");
 					}
 					if (j == 0) {
 						room.put("left", "none");
 					}
-					if (j == 5) {
+					if (j == 4) {
 						room.put("right", "none");
 					}
 
