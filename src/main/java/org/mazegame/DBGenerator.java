@@ -8,18 +8,19 @@ import org.dom4j.io.SAXReader;
 import org.apache.commons.lang3.StringUtils;
 
 public class DBGenerator {
-	public enum Direction
-    {
-        TOP, BOTTOM, LEFT, RIGHT;
+	public enum Direction {
+		TOP, BOTTOM, LEFT, RIGHT;
+
 		String toLowerCase() {
-	        return name().toLowerCase();
+			return name().toLowerCase();
 		}
-    }
-	
+	}
+
 	enum doorStatus {
 		OPEN, CLOSED, FAILED
 	}
-	
+
+	// build the whole data structure
 	public static void init() {
 		// SQLite connection string
 		String url = "jdbc:sqlite:./java-sqlite.db";
@@ -30,7 +31,8 @@ public class DBGenerator {
 				+ " bottom_door_id integer," + " left_door_id integer," + " name text NOT NULL," + " capacity real)";
 
 		String createDoorsSql = "CREATE TABLE IF NOT EXISTS doors (" + " id integer PRIMARY KEY," + " top_room_id,"
-				+ " bottom_room_id," + " left_room_id," + " right_room_id," + " status text NOT NULL," + " name text NOT NULL)";
+				+ " bottom_room_id," + " left_room_id," + " right_room_id," + " status text NOT NULL,"
+				+ " name text NOT NULL)";
 
 		String createQuestionsSql = "CREATE TABLE IF NOT EXISTS questions (" + " id integer PRIMARY KEY,"
 				+ " question text NOT NULL," + " answers text NOT NULL," + " right_answer text NOT NULL,"
@@ -105,7 +107,7 @@ public class DBGenerator {
 			}
 
 			for (int i = 0; i < list.size(); i++) {
-				stmt.execute("INSERT INTO doors(name, status) VALUES('test door','"+ doorStatus.CLOSED +"');");
+				stmt.execute("INSERT INTO doors(name, status) VALUES('test door','" + doorStatus.CLOSED + "');");
 				ResultSet resultSet = stmt.getGeneratedKeys();
 				if (resultSet.next()) {
 					stmt.executeUpdate("UPDATE questions SET door_id = " + resultSet.getInt(1) + " where id = "
@@ -154,7 +156,8 @@ public class DBGenerator {
 									.executeQuery("SELECT * FROM rooms WHERE id = " + top_room_id + "");
 							while (top_room.next()) {
 								room.put("top", top_room.getString("bottom_door_id"));
-								stmt.executeUpdate("UPDATE doors SET bottom_room_id = " + roomIndex[i][j] + " where id = "+ top_room.getString("bottom_door_id") + "");
+								stmt.executeUpdate("UPDATE doors SET bottom_room_id = " + roomIndex[i][j]
+										+ " where id = " + top_room.getString("bottom_door_id") + "");
 							}
 						}
 					}
@@ -169,7 +172,8 @@ public class DBGenerator {
 									.executeQuery("SELECT * FROM rooms WHERE id = " + left_room_id + "");
 							while (left_room.next()) {
 								room.put("left", left_room.getString("right_door_id"));
-								stmt.executeUpdate("UPDATE doors SET right_room_id = " + roomIndex[i][j] + " where id = "+ left_room.getString("right_door_id") + "");
+								stmt.executeUpdate("UPDATE doors SET right_room_id = " + roomIndex[i][j]
+										+ " where id = " + left_room.getString("right_door_id") + "");
 							}
 						}
 					}
@@ -181,7 +185,8 @@ public class DBGenerator {
 						offset++;
 						while (door.next()) {
 							room.put("top", door.getString("id"));
-							stmt.executeUpdate("UPDATE doors SET bottom_room_id = " + roomIndex[i][j] + " where id = "+ door.getString("id") + "");
+							stmt.executeUpdate("UPDATE doors SET bottom_room_id = " + roomIndex[i][j] + " where id = "
+									+ door.getString("id") + "");
 						}
 					}
 
@@ -191,7 +196,8 @@ public class DBGenerator {
 						offset++;
 						while (door.next()) {
 							room.put("bottom", door.getString("id"));
-							stmt.executeUpdate("UPDATE doors SET top_room_id = " + roomIndex[i][j] + " where id = "+ door.getString("id") + "");
+							stmt.executeUpdate("UPDATE doors SET top_room_id = " + roomIndex[i][j] + " where id = "
+									+ door.getString("id") + "");
 						}
 					}
 
@@ -201,7 +207,8 @@ public class DBGenerator {
 						offset++;
 						while (door.next()) {
 							room.put("left", door.getString("id"));
-							stmt.executeUpdate("UPDATE doors SET right_room_id = " + roomIndex[i][j] + " where id = "+ door.getString("id") + "");
+							stmt.executeUpdate("UPDATE doors SET right_room_id = " + roomIndex[i][j] + " where id = "
+									+ door.getString("id") + "");
 						}
 					}
 
@@ -211,7 +218,8 @@ public class DBGenerator {
 						offset++;
 						while (door.next()) {
 							room.put("right", door.getString("id"));
-							stmt.executeUpdate("UPDATE doors SET left_room_id = " + roomIndex[i][j] + " where id = "+ door.getString("id") + "");
+							stmt.executeUpdate("UPDATE doors SET left_room_id = " + roomIndex[i][j] + " where id = "
+									+ door.getString("id") + "");
 						}
 					}
 					System.out.println("fill in times" + offset);
@@ -231,11 +239,45 @@ public class DBGenerator {
 		}
 	}
 
-	private static Boolean continuePlay() {
-
+	// to determine the game is able to continue by the data
+	private Boolean continuePlay() {
+		
 		return false;
 	}
+	
+	public static int[][] loadAllDoors() {
 
+		String url = "jdbc:sqlite:./java-sqlite.db";
+
+		int[][] rooms = new int[49][3];
+
+		try {
+			Connection conn = DriverManager.getConnection(url);
+			Statement stmt = conn.createStatement();
+
+			ResultSet data = stmt.executeQuery("SELECT * FROM doors");
+			
+			int i = 0;
+			while (data.next()) {
+				if (data.getString("top_room_id") == null) {
+					rooms[i][0] = data.getInt("left_room_id");
+					rooms[i][1] = data.getInt("right_room_id");
+					rooms[i][2] = (data.getString("status") == doorStatus.FAILED.toString())? 0:1;
+				}
+				i++;
+			}
+			
+			stmt.close();
+		} catch (SQLException e) {
+			System.out.println(e.getMessage());
+		}
+		
+		System.out.println(Arrays.deepToString(rooms));
+		
+		return rooms;
+	}
+
+	// get the door placement info and room position by room_id
 	public static Map<String, String> getRoomDetail(Integer room_id) {
 		String url = "jdbc:sqlite:./java-sqlite.db";
 
@@ -258,12 +300,13 @@ public class DBGenerator {
 		} catch (SQLException e) {
 			System.out.println(e.getMessage());
 		}
-		
+
 		System.out.println(room);
-		
+
 		return room;
 	}
 
+	// get the question and door info and door_id and direction
 	public static Map<String, String> getDoorDetail(Integer door_id, Direction direction) {
 		String url = "jdbc:sqlite:./java-sqlite.db";
 
@@ -278,12 +321,13 @@ public class DBGenerator {
 			if (doorData.next()) {
 				door.put("id", doorData.getString("id"));
 				door.put("status", doorData.getString("status"));
-				door.put("next_room_id", doorData.getString(direction.toLowerCase()+"_room_id"));
+				door.put("next_room_id", doorData.getString(direction.toLowerCase() + "_room_id"));
 			}
-			
+
 			ResultSet questionData = stmt.executeQuery("SELECT * FROM questions WHERE door_id =  " + door_id + "");
 			if (questionData.next()) {
 				door.put("question", questionData.getString("question"));
+				door.put("question_id", questionData.getString("id"));
 				door.put("answers", questionData.getString("answers"));
 			}
 
@@ -291,12 +335,13 @@ public class DBGenerator {
 		} catch (SQLException e) {
 			System.out.println(e.getMessage());
 		}
-		
+
 		System.out.println(door);
 
 		return door;
 	}
 
+	// get the door status by answer the question
 	public static doorStatus answerQuestion(Integer question_id, String answer) {
 		String url = "jdbc:sqlite:./java-sqlite.db";
 
@@ -305,58 +350,58 @@ public class DBGenerator {
 		try {
 			Connection conn = DriverManager.getConnection(url);
 			Statement stmt = conn.createStatement();
-			
+
 			Boolean answer_right = false;
 			Integer door_id = 0;
-			
+
 			ResultSet questionData = stmt.executeQuery("SELECT * FROM questions WHERE id =  " + question_id + "");
 			if (questionData.next()) {
-				answer_right = answer.equals( questionData.getString("right_answer"));
-				
-				System.out.println(questionData.getString("door_id"));
+				answer_right = answer.equals(questionData.getString("right_answer"));
 
 				door_id = questionData.getInt("door_id");
 			}
-			
-			System.out.println(answer_right + ":"+ door_id);
 
-			
 			if (door_id <= 0) {
 				return doorStatus.CLOSED;
 			}
-			
+
 			ResultSet doorData = stmt.executeQuery("SELECT * FROM doors WHERE id =  " + door_id + "");
 
 			if (doorData.next()) {
+				if (doorData.getString("status") == doorStatus.OPEN.toString()) {
+					return doorStatus.OPEN;
+				}
+
 				if (doorData.getString("status") == doorStatus.FAILED.toString()) {
 					return doorStatus.FAILED;
+				}
+				
+				if (answer_right) {
+					stmt.executeUpdate(
+							"UPDATE doors SET status = '" + doorStatus.OPEN + "' where id = " + door_id + "");
+					return doorStatus.OPEN;
 				} else {
-					if (answer_right) {						
-						stmt.executeUpdate("UPDATE doors SET status = '"+ doorStatus.OPEN +"' where id = "+ door_id + "");
-						return doorStatus.OPEN;
-					} else {
-						return doorStatus.FAILED;
-					}
+					return doorStatus.FAILED;
 				}
 			}
-			
+
 			stmt.close();
 		} catch (SQLException e) {
 			System.out.println(e.getMessage());
 		}
-		
+
 		return doorStatus.CLOSED;
 	}
-	
+
 	public static void deleteDB() {
-		try{
+		try {
 			File file = new File("./java-sqlite.db");
-            if(file.delete()){
-                System.out.println("DB clean");
-            }
-        }catch(Exception e){
-            e.printStackTrace();
-        }
+			if (file.delete()) {
+				System.out.println("DB clean");
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 
 	/**
