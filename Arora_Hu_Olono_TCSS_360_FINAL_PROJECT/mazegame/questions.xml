@@ -1,0 +1,327 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<data>
+	<qestions>
+		<question>What is the only number that has same number of letters as its meaning?(hints: Answer questions with numbers)</question>
+		<right_answer>4</right_answer>
+	</qestions>
+	<qestions>
+		<question>What number doesn’t have its own Roman numeral?(hints: Answer questions with numbers)</question>
+		<right_answer>0</right_answer>
+	</qestions>
+	<qestions>
+		<question>What is the smallest prime number?(hints: Answer questions with numbers)</question>
+		<right_answer>2</right_answer>
+	</qestions>
+	<qestions>
+		<question>Is Pi rational or irrational?(hints: Answer questions with "rational" or "irrational")</question>
+		<right_answer>irrational</right_answer>
+	</qestions>
+	<qestions>
+		<question>Which number is the sum of its multiples when you add the single digits together(hints: Answer questions with numbers)</question>
+		<right_answer>9</right_answer>
+	</qestions>
+	<qestions>
+		<question>What letter does every odd number have in it?</question>
+		<right_answer>e</right_answer>
+	</qestions>
+	<qestions>
+		<question>The number on opposite sides of a dice add up to?</question>
+		<answer>4</answer>
+		<answer>5</answer>
+		<answer>6</answer>
+		<answer>7</answer>
+		<right_answer>7</right_answer>
+	</qestions>
+	<qestions>
+		<question>What number is both a square and a cube number?</question>
+		<answer>32</answer>
+		<answer>64</answer>
+		<answer>128</answer>
+		<answer>256</answer>
+		<right_answer>64</right_answer>
+	</qestions>
+	<qestions>
+		<question>The roman numeral “XCIX” is equivalent to?</question>
+		<answer>89</answer>
+		<answer>99</answer>
+		<answer>109</answer>
+		<answer>119</answer>
+		<right_answer>99</right_answer>
+	</qestions>
+	<qestions>
+		<question>What is a possible remainder after division with 19?</question>
+		<answer>16</answer>
+		<answer>21</answer>
+		<answer>24</answer>
+		<answer>29</answer>
+		<right_answer>16</right_answer>
+	</qestions>
+	<qestions>
+		<question>What is the tenth number in the Fibonacci series?</question>
+		<answer>34</answer>
+		<answer>55</answer>
+		<answer>89</answer>
+		<answer>233</answer>
+		<right_answer>55</right_answer>
+	</qestions>
+	<qestions>
+		<question>When was Pi discovered?</question>
+		<answer>1606</answer>
+		<answer>1649</answer>
+		<answer>1706</answer>
+		<answer>1749</answer>
+		<right_answer>1706</right_answer>
+	</qestions>
+	<qestions>
+		<question>Eight comes the first if all the numbers are arranged alphabetically</question>
+		<answer>true</answer>
+		<answer>false</answer>
+		<right_answer>true</right_answer>
+	</qestions>
+	<qestions>
+		<question>Zero to the power zero is one</question>
+		<answer>true</answer>
+		<answer>false</answer>
+		<right_answer>false</right_answer>
+	</qestions>
+	<qestions>
+		<question>1 is the smallest odd prime number</question>
+		<answer>true</answer>
+		<answer>false</answer>
+		<right_answer>false</right_answer>
+	</qestions>
+	<qestions>
+		<question>Pi is also known as “the ratio of circumference to the diameter of a circle”</question>
+		<answer>true</answer>
+		<answer>false</answer>
+		<right_answer>true</right_answer>
+	</qestions>
+	<qestions>
+		<question>2 and 5 are the only prime numbers in the entire system which ends with 2 or 5.</question>
+		<answer>true</answer>
+		<answer>false</answer>
+		<right_answer>true</right_answer>
+	</qestions>
+	<qestions>
+		<question>If the sum of digits is divisible by three, then the given number will also be divisible by three.</question>
+		<answer>true</answer>
+		<answer>false</answer>
+		<right_answer>true</right_answer>
+	</qestions>
+	<qestions>
+		<question>Messi’s longest stint has been at FC Barcelona</question>
+		<answer>true</answer>
+		<answer>false</answer>
+		<right_answer>true</right_answer>
+	</qestions>
+	<qestions>
+		<question>Max amount of players on a soccer field is 22</question>
+		<answer>true</answer>
+		<answer>false</answer>
+		<right_answer>true</right_answer>
+	</qestions>
+	<qestions>
+		<question>Soccer is known as Football in most of the world</question>
+		<answer>true</answer>
+		<answer>false</answer>
+		<right_answer>true</right_answer>
+	</qestions>
+	<qestions>
+		<question>Is a “Wing-back” a valid position?</question>
+		<answer>true</answer>
+		<answer>false</answer>
+		<right_answer>true</right_answer>
+	</qestions>
+	<qestions>
+		<question>What is Messi’s first name?</question>
+		<right_answer>lionel</right_answer>
+	</qestions>
+	<qestions>
+		<question>What position does Neymar Jr. play for PSG? Correct Answer: </question>
+		<right_answer>forward</right_answer>
+	</qestions>
+	<qestions>
+		<question>In what city is PSG located in?</question>
+		<right_answer>paris</right_answer>
+	</qestions>
+	<qestions>
+		<question>In what city are the Seattle Sounders located?</question>
+		<right_answer>seattle</right_answer>
+	</qestions>
+	<qestions>
+		<question>What is the commonly used name for the player guarding the goal? </question>
+		<right_answer>goalie</right_answer>
+	</qestions>
+	<qestions>
+		<question>Sheffield FC, the oldest soccer club, was founded in:</question>
+		<answer>1856</answer>
+		<answer>1857</answer>
+		<answer>1858</answer>
+		<answer>1859</answer>
+		<right_answer>1857</right_answer>
+	</qestions>
+	<qestions>
+		<question>Which is the German soccer league?</question>
+		<answer>premier_league</answer>
+		<answer>la_liga</answer>
+		<answer>bundesliga</answer>
+		<answer>serie_a</answer>
+		<right_answer>bundesliga</right_answer>
+	</qestions>
+	<qestions>
+		<question>Where is Cristiano Ronaldo from?</question>
+		<answer>argentina</answer>
+		<answer>italy</answer>
+		<answer>russia</answer>
+		<answer>portugal</answer>
+		<right_answer>portugal</right_answer>
+	</qestions>
+	<qestions>
+		<question>When was the first soccer match shown on TV?</question>
+		<answer>1838</answer>
+		<answer>1776</answer>
+		<answer>2001</answer>
+		<answer>1937</answer>
+		<right_answer>1937</right_answer>
+	</qestions>
+	<qestions>
+		<question>Which team is not in the Premier League?</question>
+		<answer>arsenal</answer>
+		<answer>chelsea</answer>
+		<answer>liverpool</answer>
+		<answer>rennes</answer>
+		<right_answer>rennes</right_answer>
+	</qestions>
+	<qestions>
+		<question>Which country has won the most World Cups?</question>
+		<answer>spain</answer>
+		<answer>japan</answer>
+		<answer>usa</answer>
+		<answer>brazil</answer>
+		<right_answer>brazil</right_answer>
+	</qestions>
+	<qestions>
+		<question>Around how many soccer teams are there in England?</question>
+		<answer>20</answer>
+		<answer>50</answer>
+		<answer>200</answer>
+		<answer>5000</answer>
+		<right_answer>5000</right_answer>
+	</qestions>
+	<qestions>
+		<question>Who won the world cup in 2018?</question>
+		<answer>germany</answer>
+		<answer>russia</answer>
+		<answer>belgium</answer>
+		<answer>france</answer>
+		<right_answer>france</right_answer>
+	</qestions>
+	<qestions>
+		<question>Where is Clint Dempsey from?</question>
+		<answer>morocco</answer>
+		<answer>canada</answer>
+		<answer>uk</answer>
+		<answer>usa</answer>
+		<right_answer>usa</right_answer>
+	</qestions>
+	<qestions>
+		<question>How many teams in English Premier League?</question>
+		<answer>10</answer>
+		<answer>32</answer>
+		<answer>50</answer>
+		<answer>20</answer>
+		<right_answer>20</right_answer>
+	</qestions>
+	<qestions>
+		<question>Where did the “Hand of God” occur?</question>
+		<answer>germany</answer>
+		<answer>denmark</answer>
+		<answer>uk</answer>
+		<answer>mexico</answer>
+		<right_answer>mexico</right_answer>
+	</qestions>
+	<qestions>
+		<question>Where does a penalty take place on a soccer field?</question>
+		<answer>middle</answer>
+		<answer>wings</answer>
+		<answer>box</answer>
+		<answer>net</answer>
+		<right_answer>box</right_answer>
+	</qestions>
+	<qestions>
+		<question>How many players may a team have on a soccer field?</question>
+		<answer>13</answer>
+		<answer>8</answer>
+		<answer>16</answer>
+		<answer>11</answer>
+		<right_answer>11</right_answer>
+	</qestions>
+	<qestions>
+		<question>Which company developed World of Warcraft?</question>
+		<answer>Blizzard</answer>
+		<answer>Ubisoft</answer>
+		<answer>Rockstar Games</answer>
+		<answer>EA</answer>
+		<right_answer>blizzard</right_answer>
+	</qestions>
+	<qestions>
+		<question>Which game made the prototype of dota first appear in?</question>
+		<answer>warcraft</answer>
+		<answer>starcraft</answer>
+		<answer>counterstrike</answer>
+		<answer>heroes of the storm</answer>
+		<right_answer>warcraft</right_answer>
+	</qestions>
+	<qestions>
+		<question>Is League of legends the first moba game?</question>
+		<answer>true</answer>
+		<answer>false</answer>
+		<right_answer>false</right_answer>
+	</qestions>
+	<qestions>
+		<question>Which of the following games are not of the same type?</question>
+		<answer>pubg</answer>
+		<answer>apex</answer>
+		<answer>fort night</answer>
+		<answer>baldur Gate</answer>
+		<right_answer>baldur Gate</right_answer>
+	</qestions>
+	<qestions>
+		<question>Which of the following games has the highest tournament bonus</question>
+		<answer>lol</answer>
+		<answer>dota2</answer>
+		<answer>cs</answer>
+		<answer>overwatch</answer>
+		<right_answer>dota2</right_answer>
+	</qestions>
+	<qestions>
+		<question>Which of the following games can only be run on nintendo Switch?</question>
+		<answer>zelda:breath of the Wild</answer>
+		<answer>divinity: original sin 2</answer>
+		<answer>nine parchments</answer>
+		<answer>warframe</answer>
+		<right_answer>zelda:breath of the Wild</right_answer>
+	</qestions>
+	<qestions>
+		<question>Monster Hunter is a game for hunting dragon creatures</question>
+		<answer>true</answer>
+		<answer>false</answer>
+		<right_answer>true</right_answer>
+	</qestions>
+	<qestions>
+		<question>Which of the following game backgrounds happened in 2077</question>
+		<answer>spellbreak</answer>
+		<answer>gear5</answer>
+		<answer>borderlands 3</answer>
+		<answer>cyberpunk 2077</answer>
+		<right_answer>cyberpunk 2077</right_answer>
+	</qestions>
+	<qestions>
+		<question>The name of the protagonist in the Witcher series is</question>
+		<answer>link</answer>
+		<answer>nero</answer>
+		<answer>V</answer>
+		<answer>geralt_of_rivia</answer>
+		<right_answer>geralt_of_rivia</right_answer>
+	</qestions>
+</data>
